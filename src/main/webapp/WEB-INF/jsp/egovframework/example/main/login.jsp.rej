@@ -1,0 +1,9 @@
+diff a/src/main/webapp/WEB-INF/jsp/egovframework/example/main/login.jsp b/src/main/webapp/WEB-INF/jsp/egovframework/example/main/login.jsp	(rejected hunks)
+@@ -27,6 +27,7 @@
+ 
+  $(function(){
+ 
++	 
+ 	 $('#login_button').click(function() {
+ 			
+ 		 var UserVo = {
