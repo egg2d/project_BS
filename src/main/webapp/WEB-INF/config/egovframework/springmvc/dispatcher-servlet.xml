@@ -55,9 +55,6 @@
 		</property>
 	</bean>
 
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-		p:order="2" p:viewClass="org.springframework.web.servlet.view.JstlView"
-		p:prefix="/WEB-INF/jsp/egovframework/example/" p:suffix=".jsp" />
 
 	<!-- For Pagination Tag -->
 	<bean id="imageRenderer"
@@ -71,6 +68,13 @@
 			</map>
 		</property>
 	</bean>
+	
+	
+		<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		p:order="2" p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/jsp/egovframework/example/" p:suffix=".jsp" />
+
+	
 	<!-- /For Pagination Tag -->
 
 	<!-- 타일즈 뷰 설정 -->
@@ -89,50 +93,6 @@
 		</property>
 	</bean>
 
-	<!-- <mvc:annotation-driven> <mvc:message-converters> <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> 
-		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/> 
-		</mvc:message-converters> </mvc:annotation-driven> -->
-
-
-<!-- <mvc:annotation-driven>
-
-
-		<mvc:message-converters>
-
-			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-
-				<property name="supportedMediaTypes">
-
-					<list>
-
-						<value>text/html; charset=UTF-8</value>
-
-					</list>
-
-				</property>
-
-			</bean>
-
-
-
-			<bean
-				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-
-				<property name="supportedMediaTypes">
-
-					<list>
-
-						<value>application/json; charset=UTF-8</value>
-
-					</list>
-
-				</property>
-
-			</bean>
-
-		</mvc:message-converters>
-
-	</mvc:annotation-driven>  -->
 
 	<mvc:view-controller path="/cmmn/validator.do"
 		view-name="cmmn/validator" />

@@ -8,7 +8,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,15 +26,19 @@ import com.projectbs.www.vo.UserVo;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
-@RestController
+@Controller
 public class MainController {
+	
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@Resource
 	LoginService loginService;
 
 	@RequestMapping(value = "/main.do")
-	public String initMain() throws Exception {
-		return "main/main.tiles";
+	public String initMain(HttpSession session, HttpServletRequest request) throws Exception {
+		
+		return "main/main.tiles";	
+		
 	}
 	
 	@RequestMapping(value = "/login.do")
@@ -42,27 +50,21 @@ public class MainController {
 	@ResponseBody 
 	public Map<String, Object> loginTry(HttpSession session,  @ModelAttribute("UserVo") UserVo vo) throws Exception {
 	
-		Map<String, Object> map = new HashMap<String, Object>();
-		
-		
+		Map<String, Object> map = new HashMap<String, Object>();		
+		UserVo user = new UserVo();			
 		try {
-		
-			vo =loginService.loginCheck(vo);
-		
+			user =loginService.loginCheck(vo);
+	
+		      	if(StringUtils.isEmpty(user)) {
+		          map.put("loginCheck", "fail");
+		        }else {
+		          session.setAttribute("userId", vo.getId());
+			      map.put("loginCheck", "success");		                     
+		        }
 		} catch (Exception e) {
-		
-			System.out.println(e);
-		}
-		
-        if(vo.getId() !=  null && vo.getPasswd() != null) {
-        	session.setAttribute("userId", vo.getId());
-        	map.put("loginCheck", "success");
-        	return map;
-        }else {
-          	map.put("loginCheck", "fail");
-         	return map;
-                     
-        }
+			logger.error("error : ",e);
+		}	
+    	return map;
 	}
 	
 }

@@ -27,6 +27,7 @@
 
  $(function(){
 
+	 
 	 $('#login_button').click(function() {
 			
 		 var UserVo = {
@@ -47,13 +48,14 @@
 			//contentType: "application/json; charset=utf-8",			
 			
 			success : function(data) {
-
-			debugger;
-	
-				
-			alert("성공" +data.loginCheck);
-
-			},
+				   
+			
+				if(data.loginCheck == "success") {
+					location.replace("/main.do");					
+				} else {
+					alert("아이디 또는 비밀번호가 틀렸습니다.");
+				}
+			},	
 			
 			error:function(request,status,error){
 
