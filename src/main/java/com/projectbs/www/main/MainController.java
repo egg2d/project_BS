@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,4 +68,18 @@ public class MainController {
     	return map;
 	}
 	
+		
+	/**
+	 * 로그아웃
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/logout.do")
+	public String logout(HttpServletRequest request, Model model) throws Exception{
+		request.getSession().invalidate();
+		//resultMap.put("logout", "success");
+		return "main/login";	
+	}
 }

@@ -19,7 +19,7 @@
                     <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
-                    <li>
+                    <li>  
                         <div class="dropdown-messages-box">
                             <a class="dropdown-item float-left" href="profile.html">
                                 <img alt="image" class="rounded-circle" src="/bootstrap/img/a7.jpg">
@@ -112,7 +112,7 @@
 
 
             <li>
-                <a href="login.html">
+                <a href="/logout.do"> 
                     <i class="fa fa-sign-out"></i> Log out
                 </a>
             </li>
