@@ -5,24 +5,20 @@ import lombok.Data;
 @Data
 public class UserVo {
 
-	private String id;
-	private String passwd;
+	private String USER_ID;
+	private String PASSWORD;
+	public String getUSER_ID() {
+		return USER_ID;
+	}
+	public void setUSER_ID(String uSER_ID) {
+		USER_ID = uSER_ID;
+	}
+	public String getPASSWORD() {
+		return PASSWORD;
+	}
+	public void setPASSWORD(String pASSWORD) {
+		PASSWORD = pASSWORD;
+	}
 
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPasswd() {
-		return passwd;
-	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
-	@Override
-	public String toString() {
-		return "UserVo [id=" + id + ", passwd=" + passwd + "]";
-	}
 	
 }

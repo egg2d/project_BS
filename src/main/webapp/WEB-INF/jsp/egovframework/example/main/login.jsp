@@ -31,9 +31,9 @@
 	 $('#login_button').click(function() {
 			
 		 var UserVo = {
-		   id :  $('#id').val(),
-		   passwd : $('#passwd').val()
-				 
+		   USER_ID :  $('#id').val(),
+		   PASSWORD : $('#passwd').val()
+				  
 		 }
 		 //UserVo = UserVo.serialize();
 

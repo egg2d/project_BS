@@ -59,7 +59,7 @@ public class MainController {
 		      	if(StringUtils.isEmpty(user)) {
 		          map.put("loginCheck", "fail");
 		        }else {
-		          session.setAttribute("userId", vo.getId());
+		          session.setAttribute("userId", vo.getUSER_ID());
 			      map.put("loginCheck", "success");		                     
 		        }
 		} catch (Exception e) {
