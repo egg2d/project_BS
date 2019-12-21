@@ -25,5 +25,13 @@ public class LoginServiceImpl implements LoginService {
 		return loginMapper.loginCheck(vo);
 		
 	}
+	
+	@Override
+	public void insertMemberInfo(UserVo vo)  throws Exception {
+		
+		loginMapper.insertMemberInfo(vo);
+
+	}
+
 
 }

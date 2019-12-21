@@ -12,5 +12,6 @@ public interface LoginMapper {
 
 	public UserVo loginCheck(UserVo vo) throws Exception;
 
-	
+	public void insertMemberInfo(UserVo vo)  throws Exception;
+		
 }

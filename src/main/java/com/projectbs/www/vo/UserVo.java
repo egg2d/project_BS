@@ -7,6 +7,14 @@ public class UserVo {
 
 	private String USER_ID;
 	private String PASSWORD;
+	private String EMAIL;
+	
+	public String getEMAIL() {
+		return EMAIL;
+	}
+	public void setEMAIL(String eMAIL) {
+		EMAIL = eMAIL;
+	}
 	public String getUSER_ID() {
 		return USER_ID;
 	}

@@ -102,6 +102,9 @@
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/login.do" />
 			<mvc:exclude-mapping path="/loginTry.do" />
+			<mvc:exclude-mapping path="/signUp.do" />
+			<mvc:exclude-mapping path="/registerCheck.do" />
+			<mvc:exclude-mapping path="/registerId.do" />
 
 			<bean id="AuthenInterceptor" class="com.projectbs.www.interceptor.AuthenInterceptor" />
 		</mvc:interceptor>

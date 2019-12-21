@@ -34,6 +34,7 @@ public class MainController {
 	
 	@Resource
 	LoginService loginService;
+	
 
 	@RequestMapping(value = "/main.do")
 	public String initMain(HttpSession session, HttpServletRequest request) throws Exception {
@@ -82,4 +83,83 @@ public class MainController {
 		//resultMap.put("logout", "success");
 		return "main/login";	
 	}
+
+	/**
+	 * 회원가입 페이지 
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/signUp.do")
+	public String signUp(HttpServletRequest request, Model model) throws Exception{
+	
+		return "main/register";			
+	}
+
+	/**
+	 * 회원가입 페이지 
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/registerCheck.do")
+	@ResponseBody
+	public Map<String, Object> registerCheck(HttpSession session,  @ModelAttribute("UserVo") UserVo vo) throws Exception{
+	
+		Map<String, Object> map = new HashMap<String, Object>();		
+		UserVo user = new UserVo();	
+		
+		try {
+			user =loginService.loginCheck(vo);
+	
+		      	if(StringUtils.isEmpty(user)) {
+		          map.put("registerCheck", "ok");
+		        } else {
+		 	      map.put("registerCheck", "fail");		                     
+		        }
+		      	
+		} catch (Exception e) {
+			logger.error("error : ",e);
+		}	
+		
+    	return map;
+								
+	}
+
+	/**
+	 * 회원가입  
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/registerId.do")
+	public ModelAndView registerId(HttpSession session,  @ModelAttribute("UserVo") UserVo vo) throws Exception{
+	
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("regiester.do");
+		
+		UserVo user = new UserVo();	
+		
+		try {
+		
+			loginService.insertMemberInfo(vo);
+			
+		      	
+		} catch (Exception e) {
+			logger.error("error : ",e);
+		}	
+		mav.setViewName("main/login");
+		
+    	return mav;
+								
+	}
 }
+
+
+

@@ -29,9 +29,9 @@
                 </div>
             </li>
             <li class="active">
-                <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span><span class="fa arrow"></a>
+                <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">관리자</span><span class="fa arrow"></a>
                  <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">Flot Charts</a></li>
+                    <li><a href="graph_flot.html">회원관리</a></li>
                     <li><a href="graph_morris.html">Morris.js Charts</a></li>
                     <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
                     <li><a href="graph_chartjs.html">Chart.js</a></li>
