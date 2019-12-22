@@ -14,11 +14,15 @@
 	
 	<insert id="insertMemberInfo">
 	
-		insert into member_tbl 
+		insert into member_tbl
+		(USER_ID_NO,USER_ID,PASSWORD,EMAIL,DEL_YN,USER_LVL) 
 		values(
+		(SELECT IFNULL(MAX(a.USER_ID_NO) + 1, 1) from member_tbl a),
 		#{USER_ID},
 		#{PASSWORD},
-		#{EMAIL}		
+		#{EMAIL},
+		'N',
+		1		
 		);
 	
 	</insert>
