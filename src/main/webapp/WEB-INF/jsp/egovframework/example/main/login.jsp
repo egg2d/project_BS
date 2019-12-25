@@ -52,7 +52,11 @@
 			
 				if(data.loginCheck == "success") {
 					location.replace("/main.do");					
-				} else {
+				} else if(data.loginCheck== "delete"){
+					
+					alert("해당 계정은 탈퇴된 계정입니다.");
+					
+				}else {
 					alert("아이디 또는 비밀번호가 틀렸습니다.");
 				}
 			},	

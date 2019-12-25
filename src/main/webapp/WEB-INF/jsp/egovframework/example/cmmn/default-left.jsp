@@ -29,6 +29,8 @@
                 </div>
             </li>
             <li class="active">
+             
+            	<c:if test="${userVo.USER_LVL == 0}">
                 <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">관리자</span><span class="fa arrow"></a>
                  <ul class="nav nav-second-level collapse">
                     <li><a href="graph_flot.html">회원관리</a></li>
@@ -40,6 +42,7 @@
                     <li><a href="graph_peity.html">Peity Charts</a></li>
                     <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
                 </ul>
+                </c:if>
             </li>
         </ul>
 

@@ -4,7 +4,7 @@
 
 	<select id="loginCheck" resultType="com.projectbs.www.vo.UserVo">
 
-		select USER_ID, PASSWORD from member_tbl where USER_ID  = #{USER_ID} 
+		select USER_ID, EMAIL, DEL_YN, USER_LVL from member_tbl where USER_ID  = #{USER_ID} 
 		
 		<if test="PASSWORD != null">
 			and PASSWORD = #{PASSWORD}		

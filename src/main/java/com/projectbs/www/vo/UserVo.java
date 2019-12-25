@@ -8,7 +8,15 @@ public class UserVo {
 	private String USER_ID;
 	private String PASSWORD;
 	private String EMAIL;
+	private String USER_LVL;
+	private String DEL_YN;
 	
+	public String getDEL_YN() {
+		return DEL_YN;
+	}
+	public void setDEL_YN(String dEL_YN) {
+		DEL_YN = dEL_YN;
+	}
 	public String getEMAIL() {
 		return EMAIL;
 	}
@@ -28,5 +36,10 @@ public class UserVo {
 		PASSWORD = pASSWORD;
 	}
 
-	
+	public String getUSER_LVL() {
+		return USER_LVL;
+	}
+	public void setUSER_LVL(String uSER_LVL) {
+		USER_LVL = uSER_LVL;
+	}
 }

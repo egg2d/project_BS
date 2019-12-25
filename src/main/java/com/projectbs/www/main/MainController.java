@@ -37,10 +37,16 @@ public class MainController {
 	
 
 	@RequestMapping(value = "/main.do")
-	public String initMain(HttpSession session, HttpServletRequest request) throws Exception {
+	public ModelAndView initMain(HttpSession session, HttpServletRequest request) throws Exception {
 		
-		return "main/main.tiles";	
+		UserVo userVo =  (UserVo) request.getSession().getAttribute("UserVo");
+		              
+		ModelAndView mav = new ModelAndView();
 		
+		
+		mav.addObject("userVo", userVo);
+		mav.setViewName("main/main.tiles");
+		return mav;
 	}
 	
 	@RequestMapping(value = "/login.do")
@@ -59,8 +65,15 @@ public class MainController {
 	
 		      	if(StringUtils.isEmpty(user)) {
 		          map.put("loginCheck", "fail");
-		        }else {
-		          session.setAttribute("userId", vo.getUSER_ID());
+		        }else if(user.getDEL_YN()!= null && user.getDEL_YN() =="N") {
+		          map.put("loginCheck", "delete");
+		        
+		        } else {
+		          
+		          session.setAttribute("UserVo", user);
+		          //session.setAttribute("userId", vo.getUSER_ID());
+		          //session.setAttribute("userLevel", vo.getUSER_LVL());
+		        
 			      map.put("loginCheck", "success");		                     
 		        }
 		} catch (Exception e) {
@@ -141,16 +154,10 @@ public class MainController {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		ModelAndView mav = new ModelAndView();
-		
-		System.out.println("regiester.do");
-		
+				
 		UserVo user = new UserVo();	
-		
 		try {
-		
 			loginService.insertMemberInfo(vo);
-			
-		      	
 		} catch (Exception e) {
 			logger.error("error : ",e);
 		}	
