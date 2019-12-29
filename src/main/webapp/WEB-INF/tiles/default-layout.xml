@@ -8,8 +8,8 @@
 	  	<put-attribute name="footer"    	value="/WEB-INF/jsp/egovframework/example/cmmn/default-footer.jsp" />
 	  	<put-attribute name="header"    	value="/WEB-INF/jsp/egovframework/example/cmmn/default-header.jsp" />
 	  	<put-attribute name="left"    		value="/WEB-INF/jsp/egovframework/example/cmmn/default-left.jsp" />
-	  	<put-attribute name="middle"   		value="/WEB-INF/jsp/egovframework/example/cmmn/default-middle.jsp"/>
-	  	<put-attribute name="nav"    		value="/WEB-INF/jsp/egovframework/example/cmmn/default-nav.jsp" />
+<!-- 	  	<put-attribute name="middle"   		value="/WEB-INF/jsp/egovframework/example/cmmn/default-middle.jsp"/>
+ -->	<put-attribute name="nav"    		value="/WEB-INF/jsp/egovframework/example/cmmn/default-nav.jsp" />
 	  	<put-attribute name="pageHead"    	value="/WEB-INF/jsp/egovframework/example/cmmn/default-pageHead.jsp" />
 	  	<put-attribute name="script"    	value="/WEB-INF/jsp/egovframework/example/cmmn/default-script.jsp" />
 	  	<put-attribute name="content"    	value="" />	  	

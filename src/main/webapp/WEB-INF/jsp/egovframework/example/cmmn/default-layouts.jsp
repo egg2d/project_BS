@@ -20,7 +20,7 @@
 	<tiles:insertAttribute name="pageHead"/>
 
 	<div class="wrapper wrapper-content animated fadeInRight">
-	   <tiles:insertAttribute name="middle"/>
+	   <tiles:insertAttribute name="content"/>
 	   <tiles:insertAttribute name="footer"/>
 	</div>
 </div>
