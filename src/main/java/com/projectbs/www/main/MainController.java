@@ -70,11 +70,9 @@ public class MainController {
 		        
 		        } else {
 		          
-		          session.setAttribute("UserVo", user);
-		          //session.setAttribute("userId", vo.getUSER_ID());
-		          //session.setAttribute("userLevel", vo.getUSER_LVL());
-		        
-			      map.put("loginCheck", "success");		                     
+		          session.setAttribute("UserVo", user);		        
+			      map.put("loginCheck", "success");		
+			      
 		        }
 		} catch (Exception e) {
 			logger.error("error : ",e);

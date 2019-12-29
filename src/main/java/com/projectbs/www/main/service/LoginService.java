@@ -8,10 +8,9 @@ import com.projectbs.www.vo.UserVo;
 
 public interface LoginService  {
 
+	// 로그인 체크
 	public UserVo loginCheck(UserVo vo) throws Exception;
-	
-
+	// 로그인 insert
 	public void insertMemberInfo(UserVo vo)  throws Exception;;
-	
 	
 }

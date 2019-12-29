@@ -62,7 +62,7 @@
  <script> 
 
 
-const gridData = [
+var gridData = [
   {
     id: '10012',
     city: 'Seoul',
@@ -90,30 +90,27 @@ const gridData = [
   }
 ];
 
- 
+
+var jsonData = ${adminJson};
+
 const grid = new tui.Grid({
     el: document.getElementById('grid'),
-    data: gridData,
-
+     data: jsonData,
     columns: [
     	{
-    	    header: 'ID',
-    	    name: 'id'
+    	    header: 'id',
+    	    name: 'USER_ID'
     	  },
     	  {
-    	    header: 'CITY',
-    	    name: 'city',
-    	    editor: 'text'
-    	  },
-    	  {
-    	    header: 'COUNTRY',
-    	    name: 'country'
+    	    header: 'email',
+    	    name: 'EMAIL'
+    	  //,  editor: 'text'
     	  }
     ]
   });
 
  
-	grid.resetData(data);
+	grid.resetData(jsonData);
 
 </script>
     
