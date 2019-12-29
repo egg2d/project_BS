@@ -5,40 +5,6 @@
 <script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
 
 
-<script> 
-const grid = new tui.Grid({
-    el: document.getElementById('grid'),
-    data: gridData,
-    scrollX: false,
-    scrollY: false,
-    columns: [
-      {
-        header: 'Name',
-        name: 'name'
-      },
-      {
-        header: 'Artist',
-        name: 'artist'
-      },
-      {
-        header: 'Type',
-        name: 'type'
-      },
-      {
-        header: 'Release',
-        name: 'release'
-      },
-      {
-        header: 'Genre',
-        name: 'genre'
-      }
-    ]
-  });
-
-</script>
-
-
-
 <!-- 
 <div class="row">
         <div class="col-lg-6">
@@ -93,6 +59,63 @@ const grid = new tui.Grid({
 
 <div id="grid"></div>
 
+ <script> 
+
+
+const gridData = [
+  {
+    id: '10012',
+    city: 'Seoul',
+    country: 'South Korea'
+  },
+  {
+    id: '10013',
+    city: 'Tokyo',
+    country: 'Japan'    
+  },
+  {
+    id: '10014',
+    city: 'London',
+    country: 'England'
+  },
+  {
+    id: '10015',
+    city: 'Ljubljana',
+    country: 'Slovenia'
+  },
+  {
+    id: '10016',
+    city: 'Reykjavik',
+    country: 'Iceland'
+  }
+];
+
+ 
+const grid = new tui.Grid({
+    el: document.getElementById('grid'),
+    data: gridData,
+
+    columns: [
+    	{
+    	    header: 'ID',
+    	    name: 'id'
+    	  },
+    	  {
+    	    header: 'CITY',
+    	    name: 'city',
+    	    editor: 'text'
+    	  },
+    	  {
+    	    header: 'COUNTRY',
+    	    name: 'country'
+    	  }
+    ]
+  });
+
+ 
+	grid.resetData(data);
+
+</script>
     
     
     
