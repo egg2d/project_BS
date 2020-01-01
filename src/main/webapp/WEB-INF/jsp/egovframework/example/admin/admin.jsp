@@ -1,9 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>  
 
 
-<link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
-<script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
+<script src="/bootstrap/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+<script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
+<!-- 
+<script src="https://uicdn.toast.com/tui-grid/v4.6.0/tui-grid.js"></script>
+  -->
+<script src="/toast/tui-grid.js"></script> 
+ 
+<link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/v4.8.0/tui-grid.css" />
 
+<style>
+
+#selectBox {
+ margin-bottom : 5px
+
+}
+
+
+
+</style>
 
 <!-- 
 <div class="row">
@@ -57,60 +74,111 @@
 
  </div> -->
 
+<div id="selectBox">
+<select name="limit" id="limit" onchange="limitSelect(this.value)">
+     <option value="1">10개</option>
+     <option value="25">25개</option>
+     <option value="50">50개</option>   
+</select>
+</div>
+
+
 <div id="grid"></div>
 
- <script> 
 
 
-var gridData = [
-  {
-    id: '10012',
-    city: 'Seoul',
-    country: 'South Korea'
-  },
-  {
-    id: '10013',
-    city: 'Tokyo',
-    country: 'Japan'    
-  },
-  {
-    id: '10014',
-    city: 'London',
-    country: 'England'
-  },
-  {
-    id: '10015',
-    city: 'Ljubljana',
-    country: 'Slovenia'
-  },
-  {
-    id: '10016',
-    city: 'Reykjavik',
-    country: 'Iceland'
-  }
-];
+<script> 
 
 
-var jsonData = ${adminJson};
 
-const grid = new tui.Grid({
-    el: document.getElementById('grid'),
-     data: jsonData,
-    columns: [
-    	{
-    	    header: 'id',
-    	    name: 'USER_ID'
-    	  },
-    	  {
-    	    header: 'email',
-    	    name: 'EMAIL'
-    	  //,  editor: 'text'
-    	  }
-    ]
-  });
 
- 
-	grid.resetData(jsonData);
+	var dataSource = {
+			  withCredentials: false,  
+			  initialRequest: true,
+			  api: {
+			      readData: { url: '/admin/ChangeLimit.do', method: 'GET' },
+			      createData: { url: '/api/create', method: 'POST' },
+			      updateData: { url: '/api/update', method: 'PUT' },
+			      deleteData: { url: '/api/delete', method: 'DELETE' },
+			      modifyData: { url: '/api/modify', method: 'POST' }
+			  }
+			}
+
+
+	var jsonData = ${adminJson};
+
+	const grid = new tui.Grid({
+	    el: document.getElementById('grid'),
+	    data: {
+	    	  api: {
+			      readData: { url: '/admin/ChangeLimit.do', method: 'GET' }	 
+	    	  } 
+	    },
+	    scrollX: false,
+		scrollY: false,
+	    pageOptions: { 
+	    	 perPage: 5
+	    },
+	    	 
+	    	 
+	    columns: [
+	    	{
+	    	    header: 'id',
+	    	    name: 'USER_ID'
+	    	  },
+	    	  {
+	    	    header: 'email',
+	    	    name: 'EMAIL'
+	    	  //,  editor: 'text'
+	    	  }
+	    ],
+	 
+	    
+	  });
+	
+	
+	 // var callbackData = ${resultJson};
+	  //grid.resetData(jsonData);
+	
+
+	
+
+function limitSelect(value) {
+	
+	var limitSelect = {
+		limit : value		
+	}
+	
+	/* grid.use('Net',{
+	    	api : {
+	    	'readData' : '/admin/ChangeLimit.do',
+	    	},
+	    	readDataMethod: 'POST'
+
+	});
+
+	 */
+		$.ajax({
+		
+		type : "POST",
+		url : "/admin/ChangeLimit.do",
+		dataType : "json",
+		data : limitSelect,
+		success : function(result) {
+		
+	
+			grid.resetData(result.data.contents);
+				
+		},
+		error : function() {
+			alert("오류가 발생하였습니다.");
+		}
+		
+	}); 
+	
+	
+}
+
 
 </script>
     
