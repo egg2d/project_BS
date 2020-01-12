@@ -187,8 +187,7 @@
 			 
 				if(data.registerCheck == "ok") {
 			        // 사용 가능
-			        result ='ok'
-					
+			        result ='ok'				
 				} else {
 					// 중복 
 			        result ='overlap'

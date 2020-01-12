@@ -12,4 +12,8 @@ public interface AdminMapper {
 
 	public List<UserVo> selectUserList(HashMap<String, Object> map) throws Exception;
 	
+	public int selectTotalCount() throws Exception;
+	
+	public void updateAdminDate(UserVo vo) throws Exception;
+
 }

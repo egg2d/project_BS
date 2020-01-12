@@ -14471,9 +14471,20 @@ var GridAjax = /** @class */ (function () {
             console.log(xhr.readyState);
             
         	
-       /*     if (xhr.readyState !== XMLHttpRequest.DONE) {
+           var readyState = xhr.readyState;
+           var requestDone = XMLHttpRequest.DONE;
+           
+           
+           
+          /* if (xhr.readyState !== XMLHttpRequest.DONE) {
                 return;
-            }*/
+            }
+           */
+           
+           if(readyState != 4) {
+        	   return;
+           }
+           
             preCallback();
             console.log('preCallback');
             var gridEvent = new gridEvent_1.default({ xhr: xhr });

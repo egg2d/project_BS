@@ -8,4 +8,8 @@ public interface AdminService {
 
 	public List<UserVo> selectUserList(int limit ,int start) throws Exception;
 	
+	public int selectTotalCount() throws Exception;
+	
+	public void updateAdminDate(UserVo vo) throws Exception;
+
 }

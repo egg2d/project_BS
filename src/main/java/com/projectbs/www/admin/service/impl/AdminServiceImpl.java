@@ -30,4 +30,17 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public int selectTotalCount() throws Exception {
+		// TODO Auto-generated method stub
+		return adminMapper.selectTotalCount();
+	}
+
+
+	@Override
+	public void updateAdminDate(UserVo vo) throws Exception {
+		adminMapper.updateAdminDate(vo);
+	}
+
+
 }

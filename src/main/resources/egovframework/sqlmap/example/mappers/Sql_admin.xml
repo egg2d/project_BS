@@ -4,10 +4,22 @@
 
 	<select id="selectUserList" resultType="java.util.HashMap">
 
-		select USER_ID, EMAIL from member_tbl
+		select USER_ID_NO, USER_ID, PASSWORD ,EMAIL,DEL_YN, USER_LVL from member_tbl
 		LIMIT #{limit, jdbcType=INTEGER} OFFSET #{start , jdbcType=INTEGER}
 
 	</select>
+	
+	<select id="selectTotalCount" resultType="Integer">
+		select count(*) from member_tbl
+	</select>
+	
+	<update id="updateAdminDate">
+		update member_tbl 
+		set USER_ID =#{USER_ID}, 
+		    PASSWORD= #{PASSWORD}, 
+		    EMAIL = #{EMAIL}
+		where USER_ID_NO=#{USER_ID_NO} 
+	</update>
 	
 
 </mapper>
